@@ -1,0 +1,22 @@
+@import '../../shared.scss';
+
+nav {
+    height: $h-nav;
+    display: flex;
+    justify-content: flex-end;
+    gap: $space-xs;
+    align-items: center;
+    margin: 0 $space-xs;
+
+    button {
+        height: $h-btn-sm;
+    }
+
+    a {
+        height: $h-btn-sm;
+        text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+}
