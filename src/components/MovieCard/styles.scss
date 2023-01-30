@@ -1,0 +1,43 @@
+@import '../../shared.scss';
+
+.movie-card {
+    width: 90%;
+    // height: 464px;
+    margin: 0;
+    border-radius: 0.5rem;
+    overflow: hidden;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+
+    &:hover {
+        transform: scale(0.98);
+    }
+
+    img, .skeleton-image {
+        width: 100%;
+        object-fit: cover;
+        height: 80%;
+        min-height: 420px;
+    }
+    
+    div {
+        font-size: 1rem;
+        display: flex;
+        justify-content: space-between;
+
+        h2, .skeleton-h2 {
+            font-family: $font-secondary;
+            color: $color-primary;
+            margin: 1rem 1rem;
+
+        }
+
+        p, .skeleton-p {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            margin: 1rem 1rem;
+
+        }
+    }
+}
