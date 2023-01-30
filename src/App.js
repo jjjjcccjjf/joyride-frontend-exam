@@ -2,6 +2,7 @@ import './App.scss';
 import Nav from './components/Nav'
 import Search from './components/Search';
 import MoviesGrid from './components/MoviesGrid'
+import MyCatalogGrid from './components/MoviesGrid/MyCatalogGrid';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
 function Home() {
@@ -21,6 +22,7 @@ function MyCatalog() {
       <section className="hero-search">
         <h1>My Catalog</h1>
       </section>
+      <MyCatalogGrid></MyCatalogGrid>
       {/* <MoviesGrid></MoviesGrid> */}
     </>
   )

@@ -34,7 +34,7 @@ function AppProvider(props) {
         }
     }
 
-    const value = { debouncedSearchQuery, setDebouncedSearchQuery, handleMovieCardClick }
+    const value = { debouncedSearchQuery, setDebouncedSearchQuery, handleMovieCardClick, myCatalog }
 
     return (
         <AppContext.Provider value={value}>
