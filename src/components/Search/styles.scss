@@ -1,0 +1,39 @@
+@import '../../shared.scss';
+
+.hero-search {
+    display: flex;
+    flex-direction: column;
+    // align-items: center;
+    margin: $h-nav $space-sm;
+
+    h1 {
+        font-family: $font-secondary;
+        font-size: 6rem;
+        margin: 0;
+        font-weight: 600;
+        line-height: 5rem;
+        color: $color-primary;
+        // letter-spacing: 0.1rem;
+    }
+
+    p {
+        font-size: 1.25rem;
+    }
+
+    div {
+        width: 100%;
+        display: flex;
+
+        form {
+            width: 100%;
+
+            input {
+                height: 3rem;
+                width: 100%;
+                padding: 1rem;
+                font-size:1.25rem;
+                font-family: $font-main;
+            }
+        }
+    }
+}

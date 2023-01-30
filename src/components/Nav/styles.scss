@@ -18,5 +18,15 @@ nav {
         display: flex;
         align-items: center;
         justify-content: center;
+
+        text-decoration: none;
+        // background: linear-gradient(to bottom, #B90000, #F44336);
+        // background: linear-gradient(to bottom, #0D2040, #1E3C73);
+        background-color: rgb(217, 235, 255);
+        color: rgb(0, 122, 255);
+        font-weight: 600;
+        padding: $space-xxs;
+        border-radius: $space-xs;
+        width: $h-btn-sm * 3;
     }
 }

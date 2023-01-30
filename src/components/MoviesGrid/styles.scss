@@ -1,3 +1,6 @@
+@import '../../shared.scss';
+
 .movies-grid {
     display:grid;
+    margin: 0 $space-sm;
 }
