@@ -3,44 +3,47 @@ import MovieCard from '../MovieCard'
 import { AppContext } from "../../AppContext"
 import { useState, useEffect, useContext } from 'react'
 import MovieSkeleton from '../MovieCard/MovieSkeleton'
-import useDebounce from '../../hooks/useDebounce'
 
 export default function MoviesGrid() {
 
-    const context = useContext(AppContext)
+    const { debouncedSearchQuery } = useContext(AppContext)
 
     const [movies, setMovies] = useState([])
     const [loading, setLoading] = useState(false)
+    const [notFound, setNotFound] = useState(false)
 
     useEffect(() => {
-        if (context.searchQuery !== "") {
 
-            setLoading(true)
-
-            fetch(`http://www.omdbapi.com/?apikey=6c0c8bf5&s=${context.searchQuery}`)
+        const getMoviesApiCall = () => {
+            fetch(`http://www.omdbapi.com/?apikey=6c0c8bf5&s=${debouncedSearchQuery}`)
                 .then(response => response.json())
                 .then(response => {
-                    try {
-                        if ("Search" in response) {
-                            setMovies(response.Search)
-                        } else {
-                            setMovies([])
-                        }
-                    } catch (err) {
-                        console.error(err.message)
+                    if ("Search" in response) {
+                        setMovies(response.Search)
+                        setNotFound(false)
+                    } else {
+                        setMovies([])
+                        setNotFound(true)
                     }
-
+                })
+                .then(() => {
+                    setLoading(false)
                 })
                 .catch(err => console.error(err))
-                .finally(setLoading(false));
-
         }
-    }, [context.searchQuery])
+
+        if (debouncedSearchQuery !== "") {
+            setLoading(true)
+            getMoviesApiCall()
+        } else {
+            setMovies([])
+        }
+    }, [debouncedSearchQuery])
 
     return (
         <section className='movies-grid'>
-            {context.searchQuery === "" && movies.length <= 0 && <p className="no-search">Start typing to begin search</p>}
-            {!movies && loading === false && context.searchQuery !== "" && <p className="no-search">No results found</p>}
+            {debouncedSearchQuery === "" && movies.length <= 0 && <p className="no-search">Start typing to begin search</p>}
+            {notFound && loading === false && debouncedSearchQuery !== "" && <p className="no-search">No results found</p>}
             {loading &&
                 <>
                     <MovieSkeleton></MovieSkeleton>
@@ -50,7 +53,7 @@ export default function MoviesGrid() {
                 </>
             }
 
-            {movies && movies.map((movie, key) => <MovieCard key={key} props={movie}></MovieCard>)}
+            {movies && movies.map((movie, key) => <MovieCard key={key} {...movie}></MovieCard>)}
         </section>
     )
 }

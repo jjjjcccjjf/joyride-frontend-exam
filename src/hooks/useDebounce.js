@@ -1,24 +1,19 @@
 import { useState, useEffect } from "react";
-import { debounce } from "lodash";
 
-const useDebounce = (apiCall, delay = 500) => {
-    const [inputValue, setInputValue] = useState("");
+const useDebounce = (value, delay = 500) => {
+    const [debouncedValue, setDebouncedValue] = useState(value);
 
     useEffect(() => {
-        const debouncedApiCall = debounce(apiCall, delay);
-
-        debouncedApiCall(inputValue);
+        const handler = setTimeout(() => {
+            setDebouncedValue(value);
+        }, delay);
 
         return () => {
-            debouncedApiCall.cancel();
+            clearTimeout(handler);
         };
-    }, [apiCall, delay, inputValue]);
+    }, [value, delay]);
 
-    const handleInputChange = (event) => {
-        setInputValue(event.target.value);
-    };
-
-    return [inputValue, handleInputChange];
+    return debouncedValue;
 };
 
 export default useDebounce;

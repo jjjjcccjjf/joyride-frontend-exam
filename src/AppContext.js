@@ -4,13 +4,8 @@ import { useState, useEffect } from "react";
 const AppContext = createContext();
 
 function AppProvider(props) {
-    const [searchQuery, setSearchQuery] = useState("")
+    const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("")
     const [myCatalog, setMyCatalog] = useState([])
-
-    const handleSearchQueryChange = (value) => {
-        console.log(value)
-        setSearchQuery(value)
-    }
 
     const isCatalogExists = (newItem) => {
         return myCatalog.some(item => item.imdbID === newItem.imdbID);
@@ -24,7 +19,7 @@ function AppProvider(props) {
         }
     }
 
-    const value = { searchQuery, handleSearchQueryChange, handleMovieCardClick }
+    const value = { debouncedSearchQuery, setDebouncedSearchQuery, handleMovieCardClick }
 
     return (
         <AppContext.Provider value={value}>
