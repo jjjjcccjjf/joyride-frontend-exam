@@ -12,3 +12,15 @@
     }
 
 }
+
+@media (min-width: 720px) { 
+    .movies-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 1280px) {
+    .movies-grid {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
