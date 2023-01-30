@@ -15,7 +15,7 @@ export default function MoviesGrid() {
     useEffect(() => {
 
         const getMoviesApiCall = () => {
-            fetch(`http://www.omdbapi.com/?apikey=6c0c8bf5&s=${debouncedSearchQuery}`)
+            fetch(`https://www.omdbapi.com/?apikey=6c0c8bf5&s=${debouncedSearchQuery}`)
                 .then(response => response.json())
                 .then(response => {
                     if ("Search" in response) {
