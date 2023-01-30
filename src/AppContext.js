@@ -12,9 +12,24 @@ function AppProvider(props) {
     }
 
     const handleMovieCardClick = (details) => {
-        if (!isCatalogExists(details)) {
-            setMyCatalog([...myCatalog, {...details, state: 'favorite'}]);
-        } else {
+        if (!isCatalogExists(details)) { // If not exists, add to catalog
+            setMyCatalog([...myCatalog, { ...details, state: 'favorite' }]);
+        } else { // If exists
+            const movie = myCatalog.find(item => item.imdbID === details.imdbID);
+
+            setMyCatalog(prev => {
+                if (movie.state === 'favorite') {
+                    return prev.map(item => {
+                        if (item.imdbID === movie.imdbID) {
+                            return { ...item, state: 'watch-later' }
+                        } else {
+                            return item
+                        }
+                    })
+                } else {
+                    return prev.filter(item => item.imdbID !== movie.imdbID)
+                }
+            })
 
         }
     }

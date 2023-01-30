@@ -4,13 +4,13 @@ import useDebounce from '../../hooks/useDebounce'
 import './styles.scss'
 
 export default function Search() {
-    const { setDebouncedSearchQuery } = useContext(AppContext)
-    const [searchQuery, setSearchQuery] = useState("")
-    const debouncedSearchQuery = useDebounce(searchQuery, 500) ?? ""
+    const { debouncedSearchQuery, setDebouncedSearchQuery } = useContext(AppContext)
+    const [searchQuery, setSearchQuery] = useState(debouncedSearchQuery)
+    const localDsq = useDebounce(searchQuery, 500) ?? "" // Component level debounced search query, hence localDsq
 
     useEffect(() => {
-        setDebouncedSearchQuery(debouncedSearchQuery)
-    }, [debouncedSearchQuery, setDebouncedSearchQuery])
+        setDebouncedSearchQuery(localDsq)
+    }, [localDsq, setDebouncedSearchQuery])
 
     return (
         <section className="hero-search">
