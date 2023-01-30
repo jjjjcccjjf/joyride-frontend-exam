@@ -4,6 +4,7 @@ import Search from './components/Search';
 import MoviesGrid from './components/MoviesGrid'
 import MyCatalogGrid from './components/MoviesGrid/MyCatalogGrid';
 import { BrowserRouter, Route, Routes } from "react-router-dom"
+// import { Snackbar } from '@mui/material';
 
 function Home() {
   return (
@@ -11,6 +12,7 @@ function Home() {
       <Nav></Nav>
       <Search></Search>
       <MoviesGrid></MoviesGrid>
+      {/* <Snackbar></Snackbar> */}
     </>
   )
 }
@@ -23,6 +25,7 @@ function MyCatalog() {
         <h1>My Catalog</h1>
       </section>
       <MyCatalogGrid></MyCatalogGrid>
+      {/* <Snackbar></Snackbar> */}
       {/* <MoviesGrid></MoviesGrid> */}
     </>
   )
