@@ -5,13 +5,26 @@ const AppContext = createContext();
 
 function AppProvider(props) {
     const [searchQuery, setSearchQuery] = useState("")
+    const [myCatalog, setMyCatalog] = useState([])
 
     const handleSearchQueryChange = (value) => {
         console.log(value)
         setSearchQuery(value)
     }
 
-    const value = { searchQuery: searchQuery, handleSearchQueryChange: handleSearchQueryChange }
+    const isCatalogExists = (newItem) => {
+        return myCatalog.some(item => item.imdbID === newItem.imdbID);
+    }
+
+    const handleMovieCardClick = (details) => {
+        if (!isCatalogExists(details)) {
+            setMyCatalog([...myCatalog, {...details, state: 'favorite'}]);
+        } else {
+
+        }
+    }
+
+    const value = { searchQuery, handleSearchQueryChange, handleMovieCardClick }
 
     return (
         <AppContext.Provider value={value}>

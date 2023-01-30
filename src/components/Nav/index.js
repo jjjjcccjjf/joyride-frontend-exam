@@ -1,10 +1,15 @@
 import './styles.scss'
+import { Link, useLocation } from 'react-router-dom'
 
-export default function Nav () {
+export default function Nav() {
+
+    const location = useLocation().pathname
+
     return (
         <nav>
             <button>Dark/Light Mode</button>
-            <a href="https://example.com">My Catalog</a>
+            {location === '/' && <Link to="/my-catalog">My Catalog</Link>}
+            {location === '/my-catalog' && <Link to="/">Search</Link>}
         </nav>
     )
 }
