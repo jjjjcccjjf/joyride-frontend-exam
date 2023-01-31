@@ -12,31 +12,59 @@
         transform: scale(0.98);
     }
 
-    img, .skeleton-image {
+    &.clicked {
+        animation: pop 0.2s ease-out;
+    }
+
+    @keyframes pop {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(0.96);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    img,
+    .skeleton-image {
         width: 100%;
         object-fit: cover;
         height: 80%;
         min-height: 420px;
- 
+
     }
-    
+
     div {
         font-size: 1rem;
         display: flex;
         justify-content: space-between;
 
-        h2, .skeleton-h2 {
+        h2,
+        .skeleton-h2 {
             font-family: $font-secondary;
             color: $color-primary;
             margin: 1rem 1rem;
 
         }
 
-        p, .skeleton-p {
-            font-weight: bold;
-            font-size: 1rem;
-            margin: 1rem 1rem;
+        div {
+            display: flex;
+            align-items: center;
 
+            p,
+            .skeleton-p {
+                font-weight: bold;
+                font-size: 1rem;
+                margin: 1rem 1rem;
+
+            }
         }
+
+
     }
 }
