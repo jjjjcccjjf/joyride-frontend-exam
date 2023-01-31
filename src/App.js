@@ -1,13 +1,13 @@
-import './App.scss';
+import './App.scss'
 import Nav from './components/Nav'
-import Search from './components/Search';
+import Search from './components/Search'
 import MoviesGrid from './components/MoviesGrid'
-import MyCatalogGrid from './components/MoviesGrid/MyCatalogGrid';
-import { BrowserRouter, Route, Routes } from "react-router-dom"
+import MyCatalogGrid from './components/MoviesGrid/MyCatalogGrid'
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
 // import { Snackbar } from '@mui/material';
-import PositionedSnackbar from './PositionedSnackbar';
+import PositionedSnackbar from './PositionedSnackbar'
 
-function Home() {
+function Home () {
   return (
     <>
       <Nav></Nav>
@@ -18,7 +18,7 @@ function Home() {
   )
 }
 
-function MyCatalog() {
+function MyCatalog () {
   return (
     <>
       <Nav></Nav>
@@ -31,7 +31,7 @@ function MyCatalog() {
   )
 }
 
-function App() {
+function App () {
   return (
     <BrowserRouter>
       <Routes>
@@ -39,7 +39,7 @@ function App() {
         <Route path="/my-catalog" element={<MyCatalog />}></Route>
       </Routes>
     </BrowserRouter>
-  );
+  )
 }
 
-export default App;
+export default App

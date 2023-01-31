@@ -8,6 +8,14 @@ nav {
     align-items: center;
     margin: 0 $space-xs;
 
+    @media (min-width: 640px) {
+        margin: 0 20px;
+    }
+
+    @media (min-width: 1280px) {
+        margin: 0 40px;
+    }
+
     button {
         height: $h-btn-sm;
     }
@@ -20,8 +28,6 @@ nav {
         justify-content: center;
 
         text-decoration: none;
-        // background: linear-gradient(to bottom, #B90000, #F44336);
-        // background: linear-gradient(to bottom, #0D2040, #1E3C73);
         background-color: rgb(217, 235, 255);
         color: rgb(0, 122, 255);
         font-weight: 600;

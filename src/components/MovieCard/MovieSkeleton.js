@@ -1,9 +1,9 @@
-import "./styles.scss"
+import './styles.scss'
 
-import { Skeleton } from "@mui/material"
+import { Skeleton } from '@mui/material'
 
 const MovieSkeletonCard = () => {
-    return (
+  return (
         <figure className='movie-card'>
             <Skeleton className="skeleton-image" variant="rectangular" />
             <div>
@@ -13,11 +13,11 @@ const MovieSkeletonCard = () => {
                 </div>
             </div>
         </figure>
-    )
+  )
 }
 
-export default function MovieSkeleton() {
-    return (
+export default function MovieSkeleton () {
+  return (
         <>
             <MovieSkeletonCard></MovieSkeletonCard>
             <MovieSkeletonCard></MovieSkeletonCard>
@@ -30,5 +30,5 @@ export default function MovieSkeleton() {
             <MovieSkeletonCard></MovieSkeletonCard>
             <MovieSkeletonCard></MovieSkeletonCard>
         </>
-    )
-} 
+  )
+}

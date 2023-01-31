@@ -1,7 +1,8 @@
 import './styles.scss'
+import PropTypes from 'prop-types'
 
-export default function FakeMovieCard({Poster, Title, Year, imdbID}) {
-    return (
+export default function FakeMovieCard ({ Poster, Title, Year }) {
+  return (
         <>
             <figure className='movie-card fake-movie-card'>
                 <img src={Poster} alt={`${Title} Poster`}></img>
@@ -13,5 +14,10 @@ export default function FakeMovieCard({Poster, Title, Year, imdbID}) {
                 </div>
             </figure>
         </>
-    )
+  )
+}
+FakeMovieCard.propTypes = {
+  Poster: PropTypes.string.isRequired,
+  Title: PropTypes.string.isRequired,
+  Year: PropTypes.string.isRequired
 }

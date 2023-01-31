@@ -7,6 +7,14 @@
     column-gap: $space-sm;
     margin: calc($h-nav / 2) $space-sm;
 
+    @media (min-width: 640px) {
+        margin: calc($h-nav / 2) 64px;
+    }
+
+    @media (min-width: 1280px) {
+        margin: calc($h-nav / 2) 80px;
+    }
+
     .no-search {
         margin: 0;
         font-size: 1.25rem;
@@ -14,13 +22,13 @@
 
 }
 
-@media (min-width: 640px) { 
+@media (min-width: 640px) {
     .movies-grid {
         // grid-template-columns: repeat(3, 1fr);
     }
 }
 
-@media (min-width: 767px) { 
+@media (min-width: 767px) {
     .movies-grid {
         grid-template-columns: repeat(3, 1fr);
     }
