@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: $space-sm;
-    margin: $h-nav / 2 $space-sm;
+    margin: calc($h-nav / 2) $space-sm;
 
     .no-search {
         margin: 0;
@@ -13,7 +13,13 @@
 
 }
 
-@media (min-width: 720px) { 
+@media (min-width: 640px) { 
+    .movies-grid {
+        // grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (min-width: 767px) { 
     .movies-grid {
         grid-template-columns: repeat(3, 1fr);
     }

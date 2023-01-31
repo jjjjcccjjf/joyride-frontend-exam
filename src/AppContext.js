@@ -1,11 +1,23 @@
-import { createContext } from "react";
-import { useState, useEffect } from "react";
+import { createContext, useEffect, useState } from "react";
 
 const AppContext = createContext();
 
 function AppProvider(props) {
     const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("")
     const [myCatalog, setMyCatalog] = useState([])
+    const [isThemeDark, setIsThemeDark] = useState(false)
+
+    useEffect(() => {
+        if (isThemeDark) {
+            document.body.classList.add('dark-mode')
+        } else {
+            document.body.classList.remove('dark-mode')
+        }
+    }, [isThemeDark])
+
+    const toggleDarkTheme = () => {
+        setIsThemeDark(prev => !prev)
+    }
 
     const isCatalogExists = (newItem) => {
         return myCatalog.some(item => item.imdbID === newItem.imdbID);
@@ -34,7 +46,7 @@ function AppProvider(props) {
         }
     }
 
-    const value = { debouncedSearchQuery, setDebouncedSearchQuery, handleMovieCardClick, myCatalog }
+    const value = { debouncedSearchQuery, setDebouncedSearchQuery, handleMovieCardClick, myCatalog, isThemeDark, toggleDarkTheme }
 
     return (
         <AppContext.Provider value={value}>
