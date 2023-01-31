@@ -56,15 +56,6 @@ export default function MoviesGrid() {
             {loading &&
                 <>
                     <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
-                    <MovieSkeleton></MovieSkeleton>
                 </>
             }
 

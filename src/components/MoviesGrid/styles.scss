@@ -4,6 +4,7 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     row-gap: $space-sm;
+    column-gap: $space-sm;
     margin: calc($h-nav / 2) $space-sm;
 
     .no-search {
