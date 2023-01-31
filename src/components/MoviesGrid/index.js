@@ -11,6 +11,7 @@ export default function MoviesGrid() {
     const [movies, setMovies] = useState([])
     const [loading, setLoading] = useState(false)
     const [notFound, setNotFound] = useState(false)
+    const [apiError, setApiError] = useState(false)
 
     useEffect(() => {
 
@@ -21,15 +22,22 @@ export default function MoviesGrid() {
                     if ("Search" in response) {
                         setMovies(response.Search)
                         setNotFound(false)
+                        setApiError(false)
                     } else {
                         setMovies([])
                         setNotFound(true)
+                        setApiError(false)
                     }
                 })
                 .then(() => {
                     setLoading(false)
                 })
-                .catch(err => console.error(err))
+                .catch(err => {
+                    console.log(err)
+                    setMovies([])
+                    setLoading(false)
+                    setApiError(true)
+                })
         }
 
         if (debouncedSearchQuery !== "") {
@@ -44,6 +52,7 @@ export default function MoviesGrid() {
         <section className='movies-grid'>
             {debouncedSearchQuery === "" && movies.length <= 0 && <p className="no-search">Start typing to begin search</p>}
             {notFound && loading === false && debouncedSearchQuery !== "" && <p className="no-search">No results found</p>}
+            {apiError && loading === false && debouncedSearchQuery !== "" && <p className="no-search">API returned an error</p>}
             {loading &&
                 <>
                     <MovieSkeleton></MovieSkeleton>
