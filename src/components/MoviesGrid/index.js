@@ -51,6 +51,11 @@ export default function MoviesGrid() {
                     <MovieSkeleton></MovieSkeleton>
                     <MovieSkeleton></MovieSkeleton>
                     <MovieSkeleton></MovieSkeleton>
+                    <MovieSkeleton></MovieSkeleton>
+                    <MovieSkeleton></MovieSkeleton>
+                    <MovieSkeleton></MovieSkeleton>
+                    <MovieSkeleton></MovieSkeleton>
+                    <MovieSkeleton></MovieSkeleton>
                 </>
             }
 

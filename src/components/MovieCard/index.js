@@ -13,7 +13,8 @@ export default function MovieCard({ Title, Year, Poster, Type, imdbID, state }) 
     const handleClickAnimation = () => {
         cardRef.current.classList.toggle('clicked');
         setTimeout(() => {
-            cardRef.current.classList.toggle('clicked');
+            if (cardRef.current !== null)
+                cardRef.current.classList.toggle('clicked');
         }, 200)
     }
 
