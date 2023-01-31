@@ -15,6 +15,10 @@
         animation: pop 0.2s ease-out;
     }
 
+    &.card-dark {
+        background-color: #181818;
+    }
+
     @keyframes pop {
         0% {
             transform: scale(1);
@@ -39,6 +43,7 @@
     }
 
     div {
+
         font-size: 1rem;
         display: flex;
         justify-content: space-between;
@@ -48,7 +53,7 @@
             font-family: $font-secondary;
             color: $color-primary;
             margin: 1rem 1rem;
-
+            font-size: 1.25rem;
         }
 
         div {
@@ -60,7 +65,7 @@
                 font-weight: bold;
                 font-size: 1rem;
                 margin: 1rem 1rem;
-
+                font-size: 1rem;
             }
         }
 

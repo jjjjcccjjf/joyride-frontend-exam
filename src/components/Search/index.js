@@ -45,7 +45,7 @@ export default function Search () {
             <div className='hero-div'>
                 <div className='hero-left'>
                     <h1>Catalog your favourite shows in seconds.</h1>
-                    <p>Add to your list of <span>favourite</span> shows with a single tap, another to mark them as <span>watch later</span>, and another to <span>remove</span>.</p>
+                    <p>Add to your list of <span>favourite</span> shows with a single click. Another click to mark them as <span>watch later</span>, and another to <span>remove</span>. Then share your catalog with your friends (potentially).</p>
                 </div>
                 <div className='hero-right'>
                     {fakeMovies.map((movie, key) => <FakeMovieCard key={key} {...movie}></FakeMovieCard>)}
