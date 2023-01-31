@@ -5,6 +5,7 @@ import { AppContext } from '../../AppContext'
 import ThumbUpIcon from '@mui/icons-material/ThumbUp'
 import PreviewIcon from '@mui/icons-material/Preview'
 import clsx from 'clsx'
+import PropTypes from 'prop-types'
 
 export default function MovieCard ({ Title, Year, Poster, Type, imdbID, state }) {
   const cardRef = useRef()
@@ -33,4 +34,13 @@ export default function MovieCard ({ Title, Year, Poster, Type, imdbID, state })
             </div>
         </figure>
   )
+}
+
+MovieCard.propTypes = {
+  Title: PropTypes.string,
+  Year: PropTypes.string,
+  Poster: PropTypes.string,
+  Type: PropTypes.string,
+  imdbID: PropTypes.string,
+  state: PropTypes.string
 }

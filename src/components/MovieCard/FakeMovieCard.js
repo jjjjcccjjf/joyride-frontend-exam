@@ -16,6 +16,7 @@ export default function FakeMovieCard ({ Poster, Title, Year }) {
         </>
   )
 }
+
 FakeMovieCard.propTypes = {
   Poster: PropTypes.string.isRequired,
   Title: PropTypes.string.isRequired,
