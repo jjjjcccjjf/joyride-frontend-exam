@@ -4,17 +4,41 @@ const AppContext = createContext();
 
 function AppProvider(props) {
     const [debouncedSearchQuery, setDebouncedSearchQuery] = useState("")
-    const [myCatalog, setMyCatalog] = useState([])
-    const [isThemeDark, setIsThemeDark] = useState(false)
+    const [myCatalog, setMyCatalog] = useState(() => {
+        if (localStorage.getItem("myCatalog")) {
+            try {
+                return JSON.parse(localStorage.getItem("myCatalog"))
+            } catch (err) {
+                console.log(err.message)
+                localStorage.removeItem("myCatalog")
+                return [];
+            }
+        }
+        return []
+    })
+
+    const [isThemeDark, setIsThemeDark] = useState(() => {
+        if (localStorage.getItem("isThemeDark") === 'true') {
+            return true
+        }
+        return false;
+    })
     const [snackBarNotif, setSnackBarNotif] = useState('')
 
     useEffect(() => {
+        localStorage.setItem("isThemeDark", isThemeDark)
         if (isThemeDark) {
             document.body.classList.add('dark-mode')
         } else {
             document.body.classList.remove('dark-mode')
         }
     }, [isThemeDark])
+
+    useEffect(() => {
+        if (myCatalog !== null && myCatalog !== undefined) {
+            localStorage.setItem("myCatalog", JSON.stringify(myCatalog))
+        }
+    }, [myCatalog])
 
     const toggleDarkTheme = () => {
         setIsThemeDark(prev => !prev)
