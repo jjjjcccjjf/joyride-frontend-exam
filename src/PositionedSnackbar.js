@@ -1,37 +1,34 @@
-import Snackbar from '@mui/material/Snackbar';
-import { useState, useContext, useEffect } from 'react';
-import { AppContext } from './AppContext';
-import IconButton from '@mui/material/IconButton';
-import CloseIcon from '@mui/icons-material/Close';
+import Snackbar from '@mui/material/Snackbar'
+import { useState, useContext, useEffect } from 'react'
+import { AppContext } from './AppContext'
+import IconButton from '@mui/material/IconButton'
+import CloseIcon from '@mui/icons-material/Close'
 
-export default function PositionedSnackbar() {
+export default function PositionedSnackbar () {
+  const { snackBarNotif, setSnackBarNotif } = useContext(AppContext)
 
-    const { snackBarNotif, setSnackBarNotif } = useContext(AppContext)
+  const [state, setState] = useState({
+    open: false,
+    vertical: 'bottom',
+    horizontal: 'center'
+  })
 
-    const [state, setState] = useState({
-        open: false,
-        vertical: 'bottom',
-        horizontal: 'center',
-    });
+  const { vertical, horizontal, open } = state
 
-    const { vertical, horizontal, open } = state;
+  const handleClose = (event, reason) => {
+    if (reason === 'clickaway') {
+      return
+    }
 
-    const handleClose = (event, reason) => {
-        if (reason === 'clickaway') {
-            return;
-        }
+    setState({ ...state, open: false })
+    setSnackBarNotif('')
+  }
 
-        setState({ ...state, open: false });
-        setSnackBarNotif("")
-    };
+  useEffect(() => {
+    if (snackBarNotif !== '') { setState({ ...state, open: true }) }
+  }, [snackBarNotif])
 
-    useEffect(() => {
-        if (snackBarNotif !== "")
-            setState({ ...state, open: true });
-    }, [snackBarNotif])
-
-
-    return (
+  return (
         <div>
             <Snackbar
                 anchorOrigin={{ vertical, horizontal }}
@@ -52,5 +49,5 @@ export default function PositionedSnackbar() {
                 }
             />
         </div>
-    );
+  )
 }
