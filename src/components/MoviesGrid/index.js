@@ -47,7 +47,7 @@ export default function MoviesGrid () {
   }, [debouncedSearchQuery])
 
   return (
-        <section className='movies-grid'>
+        <section className='movies-grid' aria-label='movies-grid'>
             {debouncedSearchQuery === '' && movies.length <= 0 && <p className="no-search">Start typing to begin search</p>}
             {notFound && loading === false && debouncedSearchQuery !== '' && <p className="no-search">No results found</p>}
             {apiError && loading === false && debouncedSearchQuery !== '' && <p className="no-search">API returned an error</p>}

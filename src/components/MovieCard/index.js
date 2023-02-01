@@ -19,7 +19,7 @@ export default function MovieCard ({ Title, Year, Poster, Type, imdbID, state })
   }
 
   return (
-        <figure ref={cardRef} className={clsx('movie-card', isThemeDark ? 'card-dark' : '')} onClick={() => {
+        <figure aria-label="real-movie-card" ref={cardRef} className={clsx('movie-card', isThemeDark ? 'card-dark' : '')} onClick={() => {
           handleMovieCardClick({ Title, Year, Poster, Type, imdbID })
           handleClickAnimation()
         }}>

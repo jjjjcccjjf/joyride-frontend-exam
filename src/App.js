@@ -4,8 +4,8 @@ import Search from './components/Search'
 import MoviesGrid from './components/MoviesGrid'
 import MyCatalogGrid from './components/MoviesGrid/MyCatalogGrid'
 import { BrowserRouter, Route, Routes } from 'react-router-dom'
-// import { Snackbar } from '@mui/material';
 import PositionedSnackbar from './PositionedSnackbar'
+import { AppProvider } from './AppContext'
 
 function Home () {
   return (
@@ -33,12 +33,14 @@ function MyCatalog () {
 
 function App () {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />}></Route>
-        <Route path="/my-catalog" element={<MyCatalog />}></Route>
-      </Routes>
-    </BrowserRouter>
+    <AppProvider>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<Home />}></Route>
+          <Route path="/my-catalog" element={<MyCatalog />}></Route>
+        </Routes>
+      </BrowserRouter>
+    </AppProvider>
   )
 }
 

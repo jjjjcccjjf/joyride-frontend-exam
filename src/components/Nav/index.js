@@ -18,8 +18,8 @@ export default function Nav () {
                     {isThemeDark === true ? <DarkModeIcon></DarkModeIcon> : <Brightness4Icon></Brightness4Icon>}
                 </IconButton>
                 {/* <button onClick={toggleDarkTheme}>Dark/Light Mode</button> */}
-                {location === '/' && <Link to="/my-catalog">My Catalog</Link>}
-                {location === '/my-catalog' && <Link to="/">Search</Link>}
+                {location === '/' && <Link to="/my-catalog" aria-label='my-catalog-link'>My Catalog</Link>}
+                {location === '/my-catalog' && <Link to="/" aria-label='home-page-link'>Search</Link>}
             </nav>
             <div className="hero-overlay"></div>
         </>

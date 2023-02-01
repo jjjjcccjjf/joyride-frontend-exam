@@ -55,7 +55,7 @@ export default function Search () {
 
       <div className='hero-form'>
         <form onSubmit={e => e.preventDefault()}>
-          <input type="text" placeholder="Type a title (Ex. The Avengers)" name="s" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}></input>
+          <input aria-label="movie-search-bar" type="text" placeholder="Type a title (Ex. The Avengers)" name="s" value={searchQuery} onChange={(e) => setSearchQuery(e.target.value)}></input>
         </form>
       </div>
     </section>
